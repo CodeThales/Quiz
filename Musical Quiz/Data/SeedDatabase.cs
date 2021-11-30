@@ -2,13 +2,11 @@
 using Microsoft.Extensions.DependencyInjection;
 using Musical_Quiz.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Musical_Quiz.Data
 {
-    public class SeedDatabase
+    public static class SeedDatabase
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
@@ -31,9 +29,9 @@ namespace Musical_Quiz.Data
 
                 if (!context.Option.Any())
                 {
-                    context.Option.Add(new Question { Alternative = "Titãs", IsCorrect = true });
-                    context.Option.Add(new Question { Alternative = "que eu vou varrendo.", IsCorrect = true });
-                    context.Option.Add(new Question { Alternative = "Zezé de Camargo e Luciano", IsCorrect = true });
+                    context.Option.Add(new Option { Alternative = "Titãs", IsCorrect = true });
+                    context.Option.Add(new Option { Alternative = "que eu vou varrendo.", IsCorrect = true });
+                    context.Option.Add(new Option { Alternative = "Zezé de Camargo e Luciano", IsCorrect = true });
                 }
 
                 context.SaveChanges();
