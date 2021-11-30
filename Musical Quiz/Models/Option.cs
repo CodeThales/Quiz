@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Musical_Quiz.Models
 {
     public class Option
     {
-        public int Id { get; set; }
-        public int? QuestionsId { get; set; }
-        public string Option { get; set; }
+        [Key]
+        public int Id { get; set; }        
+        public string Alternative { get; set; }
         public bool IsCorrect { get; set; }
+
+        [ForeignKey("Question")]
+        public int QuestionId { get; set; }
     }
 }
