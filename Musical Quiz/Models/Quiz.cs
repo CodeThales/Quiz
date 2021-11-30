@@ -7,5 +7,7 @@ namespace Musical_Quiz.Models
 {
     public class Quiz
     {
+        public int Id { get; set; }
+        public string Theme { get; set; }
     }
 }
