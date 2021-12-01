@@ -85,7 +85,6 @@ namespace Musical_Quiz.Services
         {
             return _context.Option.Count();
         }
-
         
     }
 }
