@@ -10,6 +10,6 @@ namespace Musical_Quiz.Services
         bool Create(Option option);
         bool Update(Option option);
         bool Delete(int? id);
-
+        int OptionList();
     }
 }
