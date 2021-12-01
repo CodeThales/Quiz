@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Musical_Quiz.Data;
+using Musical_Quiz.Services;
 using System;
 
 namespace Musical_Quiz
@@ -22,7 +23,7 @@ namespace Musical_Quiz
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddCors();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -33,6 +34,14 @@ namespace Musical_Quiz
             services.AddDbContext<Context>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MusicalQuiz"))
             );
+
+            #region Dependency Injection
+            services.AddTransient<IOptionService, OptionService>();
+            services.AddTransient<IPlayerAnswersService, PlayerAnswersService>();
+            services.AddTransient<IPlayerService, PlayerService>();
+            services.AddTransient<IQuestionService, QuestionService>();
+            services.AddTransient<IQuizService, QuizService>();
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
