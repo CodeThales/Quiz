@@ -19,9 +19,16 @@ namespace Musical_Quiz.Controllers
         public IActionResult Index() => ApiOk(_service.All());
 
         [HttpGet]
-        [Route("{id}")]
-        public IActionResult Index(int? id) => ApiOk(_service.Get(id));
-        
+        [Route("{id}")]        
+        public IActionResult Index(int? id)
+        {
+            if (id <= 0 || id > _service.OptionList())
+                return ApiNotFound("Não encontramos esta alternativa em nosso db.");
+            else return ApiOk(_service.Get(id));
+        }
+
+
+
         [HttpPost]
         public IActionResult Create([FromBody] Option option)
         {
