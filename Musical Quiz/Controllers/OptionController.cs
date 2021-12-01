@@ -23,7 +23,7 @@ namespace Musical_Quiz.Controllers
         public IActionResult Index(int? id)
         {
             if (id <= 0 || id > _service.OptionList())
-                return ApiNotFound("Não encontramos esta alternativa em nosso db.");
+                return ApiNotFound("Não encontramos esta alternativa em nosso banco de dados.");
             else return ApiOk(_service.Get(id));
         }
 
