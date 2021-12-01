@@ -79,7 +79,12 @@ namespace Musical_Quiz.Services
             {
                 return false;
             }
-        }       
+        }
+        
+        public int OptionList()
+        {
+            return _context.Option.Count();
+        }
 
         
     }
