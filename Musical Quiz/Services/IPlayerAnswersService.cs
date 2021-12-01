@@ -10,6 +10,6 @@ namespace Musical_Quiz.Services
         bool Create(PlayerAnswers playerAnswers);
         bool Update(PlayerAnswers playerAnswers);
         bool Delete(int? id);
-
+        int PlayerAnswersList();
     }
 }
