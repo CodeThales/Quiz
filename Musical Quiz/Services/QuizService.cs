@@ -80,5 +80,10 @@ namespace Musical_Quiz.Services
                 return false;
             }
         }
+
+        public int QuizList()
+        {
+            return _context.Quiz.Count();
+        }
     }
 }
