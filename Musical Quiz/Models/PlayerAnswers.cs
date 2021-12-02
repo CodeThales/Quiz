@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Musical_Quiz.Models
@@ -8,16 +9,19 @@ namespace Musical_Quiz.Models
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("Player")]
+        //[ForeignKey("Player")]
         [Column(Order = 1)]
-        public int PlayeId { get; set; }
+        public int PlayerId { get; set; }
+        public List<Player> Player { get; set; }
 
-        [ForeignKey("Question")]
+        //[ForeignKey("Question")]
         [Column(Order = 2)]
         public int QuestionId { get; set; }
+        public List<Question> Question { get; set; }
 
-        [ForeignKey("Option")]
+        //[ForeignKey("Option")]
         [Column(Order = 2)]
         public int OptionId { get; set; }
+        public List<Option> Option { get; set; }
     }
 }
