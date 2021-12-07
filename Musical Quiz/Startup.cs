@@ -8,6 +8,8 @@ using Microsoft.OpenApi.Models;
 using Musical_Quiz.Data;
 using Musical_Quiz.Services;
 using System;
+using System.IO;
+using System.Reflection;
 
 namespace Musical_Quiz
 {
@@ -45,15 +47,19 @@ namespace Musical_Quiz
                             Name = "MIT License",
                             Url = new Uri("https://opensource.org/licenses/MIT")
                         },
-                        Version = "v1" }); ;
-            });
+                        Version = "v1" 
+                    });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = $"{Path.Combine(AppContext.BaseDirectory, xmlFile)}";
+                c.IncludeXmlComments(xmlPath);
+            });            
             #endregion
 
             services.AddDbContext<Context>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MusicalQuiz"))
             );
 
-            #region Dependency Injection
+            #region Services Dependency Injection
             services.AddTransient<IOptionService, OptionService>();
             services.AddTransient<IPlayerAnswersService, PlayerAnswersService>();
             services.AddTransient<IPlayerService, PlayerService>();
