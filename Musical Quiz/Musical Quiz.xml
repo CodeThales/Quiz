@@ -4,5 +4,175 @@
         <name>Musical Quiz</name>
     </assembly>
     <members>
+        <member name="M:Musical_Quiz.Controllers.OptionController.Index">
+            <summary>
+            Returns a list of all quiz options
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.OptionController.Index(System.Nullable{System.Int32})">
+            <summary>
+            Returns an option fetched by id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.OptionController.Create(Musical_Quiz.Models.Option)">
+            <summary>
+            Creates a new quiz option.
+            </summary>
+            <param name="option"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.OptionController.Update(Musical_Quiz.Models.Option)">
+            <summary>
+            Updates a quiz option.
+            </summary>
+            <param name="option"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.OptionController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            Delete a quiz option.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.PlayerAnswersController.Index">
+            <summary>
+            Returns a list of all player response.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.PlayerAnswersController.Index(System.Nullable{System.Int32})">
+            <summary>
+            Ruturns a player response fetched by id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.PlayerAnswersController.Create(Musical_Quiz.Models.PlayerAnswers)">
+            <summary>
+            Creates a new player response.
+            </summary>
+            <param name="playerAnswers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.PlayerAnswersController.Update(Musical_Quiz.Models.PlayerAnswers)">
+            <summary>
+            Updates a player response.
+            </summary>
+            <param name="playerAnswers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.PlayerAnswersController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            Delete a player response.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.PlayerController.Index">
+            <summary>
+            Returns a list of all players.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.PlayerController.Index(System.Nullable{System.Int32})">
+            <summary>
+            Returns a player fetched by id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.PlayerController.Create(Musical_Quiz.Models.Player)">
+            <summary>
+            Creates a new player.
+            </summary>
+            <param name="player"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.PlayerController.Update(Musical_Quiz.Models.Player)">
+            <summary>
+            Updates a player.
+            </summary>
+            <param name="player"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.PlayerController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            Delete a player.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.QuestionController.Index">
+            <summary>
+            Returns a list of all quiz questions.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.QuestionController.Index(System.Nullable{System.Int32})">
+            <summary>
+            Returns a quiz question fetched by id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.QuestionController.Create(Musical_Quiz.Models.Question)">
+            <summary>
+            Creates a quiz question.
+            </summary>
+            <param name="question"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.QuestionController.Update(Musical_Quiz.Models.Question)">
+            <summary>
+            Updates a quiz question.
+            </summary>
+            <param name="question"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.QuestionController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            Delete a quiz question.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.QuizController.Index">
+            <summary>
+            Ruturs a list of all quiz themes.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.QuizController.Index(System.Nullable{System.Int32})">
+            <summary>
+            Returns a quiz theme fetched by id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.QuizController.Create(Musical_Quiz.Models.Quiz)">
+            <summary>
+            Creates a new quiz theme.
+            </summary>
+            <param name="quiz"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.QuizController.Update(Musical_Quiz.Models.Quiz)">
+            <summary>
+            Updates a quiz theme.
+            </summary>
+            <param name="quiz"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.QuizController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            Delete a quiz theme.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
