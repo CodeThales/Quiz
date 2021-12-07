@@ -72,6 +72,17 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:Musical_Quiz.Controllers.PlayerController">
+            <summary>
+            PlayerController inherits pattern responses from APIBaSeController.
+            </summary>
+        </member>
+        <member name="M:Musical_Quiz.Controllers.PlayerController.#ctor(Musical_Quiz.Services.IPlayerService)">
+            <summary>
+            PlayerController builder instantiating the service responsible for player methods.
+            </summary>
+            <param name="service"></param>
+        </member>
         <member name="M:Musical_Quiz.Controllers.PlayerController.Index">
             <summary>
             Returns a list of all players.
