@@ -1,11 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Musical_Quiz.Models;
 using Musical_Quiz.Services;
+using System.Net.Mime;
 
 namespace Musical_Quiz.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Produces(MediaTypeNames.Application.Json)]
+    [Consumes(MediaTypeNames.Application.Json)]
     public class OptionController : APIBaseController
     {
         IOptionService _service;
@@ -20,6 +24,7 @@ namespace Musical_Quiz.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult Index() => ApiOk(_service.All());
 
 
@@ -29,7 +34,10 @@ namespace Musical_Quiz.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("{id}")]        
+        [Route("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Index(int? id)
         {
             if (id <= 0 || id > _service.OptionList())
@@ -44,6 +52,8 @@ namespace Musical_Quiz.Controllers
         /// <param name="option"></param>
         /// <returns></returns>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Create([FromBody] Option option)
         {
             return _service.Create(option) ?
@@ -58,6 +68,9 @@ namespace Musical_Quiz.Controllers
         /// <param name="option"></param>
         /// <returns></returns>
         [HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Update([FromBody] Option option)
         {
             return _service.Update(option) ?
@@ -73,6 +86,9 @@ namespace Musical_Quiz.Controllers
         /// <returns></returns>
         [HttpDelete]        
         [Route("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Delete(int? id) =>
             _service.Delete(id) ?
             ApiOk("Alternativa excluída com sucesso.") :
