@@ -25,12 +25,30 @@ namespace Musical_Quiz
         {
             services.AddCors();
             services.AddControllers();
+
+            #region Swagger Documentation
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Musical_Quiz", Version = "v1" });
+                c.SwaggerDoc("v1",
+                    new OpenApiInfo
+                    {
+                        Title = "Musical Quiz API",
+                        Description = "An API created to store the funniest musical quiz ever!",
+                        Contact = new OpenApiContact
+                        {
+                            Name = "Thales Ribeiro",
+                            Email = "codethales@gmail.com",
+                            Url = new Uri("https://codethales.github.io/")
+                        },
+                        License = new OpenApiLicense
+                        {
+                            Name = "MIT License",
+                            Url = new Uri("https://opensource.org/licenses/MIT")
+                        },
+                        Version = "v1" }); ;
             });
+            #endregion
 
-            
             services.AddDbContext<Context>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MusicalQuiz"))
             );
