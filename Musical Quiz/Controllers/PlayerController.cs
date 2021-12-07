@@ -1,15 +1,26 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Musical_Quiz.Models;
 using Musical_Quiz.Services;
+using System.Net.Mime;
 
 namespace Musical_Quiz.Controllers
 {
+    /// <summary>
+    /// PlayerController inherits pattern responses from APIBaSeController.
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
+    [Produces(MediaTypeNames.Application.Json)]
+    [Consumes(MediaTypeNames.Application.Json)]
     public class PlayerController : APIBaseController
     {
         IPlayerService _service;
 
+        /// <summary>
+        /// PlayerController builder instantiating the service responsible for player methods.
+        /// </summary>
+        /// <param name="service"></param>
         public PlayerController(IPlayerService service)
         {
             _service = service;
@@ -21,6 +32,7 @@ namespace Musical_Quiz.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult Index() => ApiOk(_service.All());
 
 
@@ -31,6 +43,9 @@ namespace Musical_Quiz.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Index(int? id)
         {
             if (id <= 0 || id > _service.PlayerList())
@@ -45,6 +60,8 @@ namespace Musical_Quiz.Controllers
         /// <param name="player"></param>
         /// <returns></returns>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]        
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Create([FromBody] Player player)
         {
             return _service.Create(player) ?
@@ -59,6 +76,9 @@ namespace Musical_Quiz.Controllers
         /// <param name="player"></param>
         /// <returns></returns>
         [HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Update([FromBody] Player player)
         {
             return _service.Update(player) ?
@@ -74,6 +94,9 @@ namespace Musical_Quiz.Controllers
         /// <returns></returns>
         [HttpDelete]
         [Route("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Delete(int? id) =>
             _service.Delete(id) ?
             ApiOk("Jogador excluído com sucesso.") :
