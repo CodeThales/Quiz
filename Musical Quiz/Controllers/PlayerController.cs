@@ -15,9 +15,20 @@ namespace Musical_Quiz.Controllers
             _service = service;
         }
 
+
+        /// <summary>
+        /// Returns a list of all players.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Index() => ApiOk(_service.All());
 
+
+        /// <summary>
+        /// Returns a player fetched by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{id}")]
         public IActionResult Index(int? id)
@@ -28,7 +39,11 @@ namespace Musical_Quiz.Controllers
         }
 
 
-
+        /// <summary>
+        /// Creates a new player.
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Create([FromBody] Player player)
         {
@@ -37,6 +52,12 @@ namespace Musical_Quiz.Controllers
                 ApiNotFound("Erro ao tentar cadastrar jogador.");
         }
 
+
+        /// <summary>
+        /// Updates a player.
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
         [HttpPut]
         public IActionResult Update([FromBody] Player player)
         {
@@ -45,6 +66,12 @@ namespace Musical_Quiz.Controllers
                 ApiNotFound("Erro ao tentar atualizar jogador.");
         }
 
+
+        /// <summary>
+        /// Delete a player.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("{id}")]
         public IActionResult Delete(int? id) =>
